@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
@@ -10,5 +11,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  */
 class ImobiliariaController extends AbstractController
 {
+    /**
+     * @Route("index")
+     */
+    public function index()
+    {
 
+        return $this->render('imobiliaria.html.twig');
+
+    }
 }
