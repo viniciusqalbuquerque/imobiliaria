@@ -37,4 +37,32 @@ class UsuarioController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/listar-usuarios", name="listar-usuarios")
+     */
+    public function listarUsuarios(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $usuarios = $em->getRepository(Usuario::class)->findAll();
+
+        return $this->render('listar_usuarios.html.twig', [
+            'usuarios' => $usuarios
+        ]);
+    }
+
+    /**
+     * @Route("/editar-usuario/{id}", name="editar-usuario")
+     */
+    public function editarUsuario(int $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository(Usuario::class)->find($id);
+
+        $form = $this->createForm(UsuarioType::class, $usuario);
+
+        return $this->render('usuario_cadastro.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
 }

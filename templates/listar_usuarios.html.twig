@@ -1,0 +1,86 @@
+{% include "base.html.twig" %}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Lista de Clientes</h6>
+                </div>
+                <div class="card-body">
+                        <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                        <tr>
+                                                <th>Nome</th>
+                                                <th>CpfCnpj</th>
+                                                <th>E-mail</th>
+                                                <th>Sexo</th>
+                                                <th>Data Cadastro</th>
+                                                <th>Editar</th>
+                                        </tr>
+                                        </thead>
+                                        <tfoot>
+                                        <tr>
+                                                <th>Nome</th>
+                                                <th>CpfCnpj</th>
+                                                <th>E-mail</th>
+                                                <th>Sexo</th>
+                                                <th>Data Cadastro</th>
+                                                <th>Editar</th>
+                                        </tr>
+                                        </tr>
+                                        </tfoot>
+                                        <tbody>
+                                        </tbody>
+                                         {% for usuario in usuarios %}
+                                        <tr>
+                                                <td>{{ usuario.nome }}r</td>
+                                                <td>{{ usuario.cpfCnpj }}</td>
+                                                <td>{{ usuario.email }}</td>
+                                                <td>{{ usuario.sexo }}</td>
+                                                <td>{{ usuario.dtCadastro|date("m/d/Y") }}</td>
+                                                <td><a href="{{ path('editar-usuario', { 'id': usuario.id}) }}" class="btn btn-success btn-circle btn-sm">
+                                                                <i class="fas fa-check"></i>
+                                                        </a></td>
+                                        </tr>
+                                        {% endfor %}
+                                </table>
+                        </div>
+                </div>
+        </div>
+
+        </div>
+</div>
+
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="js/demo/datatables-demo.js"></script>
+
+<!-- End of Main Content -->
+
+{% include "footer.html.twig" %}s
+
+
+
+
+
+
+
+
+
