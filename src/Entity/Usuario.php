@@ -1,6 +1,8 @@
 <?php
-namespace Entity;
+namespace App\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Endereco;
 
 /**
  * @ORM\Entity
@@ -17,22 +19,22 @@ class Usuario
     /**
      * @ORM\Column(type="string", length=255, nullable=false)
      */
-    private $name;
+    private $nome;
 
     /**
-     * @ORM\Column(type="string", length=15, nullable=false)
+     * @ORM\Column(type="string", name="cpf_cnpj", length=15, nullable=false)
      */
-    private $cpf_cnpj;
+    private $cpfCnpj;
 
     /**
-     * @ORM\Column(type="date", nullable=false)
+     * @ORM\Column(type="date", name="dt_nascimento", nullable=false)
      */
-    private $dt_nascimento;
+    private $dtNascimento;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="date", name="dt_cadastro", nullable=true)
      */
-    private $dt_cadastro;
+    private $dtCadastro;
 
     /**
      * @ORM\Column(type="string", nullable=true)
@@ -45,30 +47,26 @@ class Usuario
     private $sexo;
 
     /**
-     * @ORM\Column(type="string", length=100, nullable=true)
-     */
-    private $login;
-
-    /**
-     * @ORM\Column(type="string", length=100, nullable=true)
-     */
-    private $senha;
-
-    /**
-     * @ORM\OneToOne(targetEntity="Entity\Endereco", inversedBy="cliente")
-     * @ORM\JoinColumn(name="endereco_id", referencedColumnName="id", unique=true)
+     * @ORM\OneToOne(targetEntity="App\Entity\Endereco", inversedBy="cliente")
+     * @ORM\JoinColumn(name="id_endereco", referencedColumnName="id", unique=true, nullable=true)
      */
     private $endereco;
 
     /**
-     * @ORM\OneToMany(targetEntity="Entity\contratoLocacao", mappedBy="usuario")
-     */
-    private $contratoLocacao;
+//     * @ORM\OneToMany(targetEntity="Entity\contratoLocacao", mappedBy="usuario")
+//     */
+//    private $contratoLocacao;
+
+//    /**
+//     * @ORM\OneToMany(targetEntity="Entity\ContratoAdm", mappedBy="usuario")
+//     */
+//    private $contratoAdm;
 
     /**
-     * @ORM\OneToMany(targetEntity="Entity\ContratoAdm", mappedBy="usuario")
+     * @var string
+     * @ORM\Column(type="string", name="tipo_usuario", nullable=true)
      */
-    private $contratoAdm;
+    private $tipoUsuario;
 
     /**
      * @return mixed
@@ -89,17 +87,17 @@ class Usuario
     /**
      * @return mixed
      */
-    public function getName()
+    public function getNome()
     {
-        return $this->name;
+        return $this->nome;
     }
 
     /**
-     * @param mixed $name
+     * @param mixed $nome
      */
-    public function setName($name): void
+    public function setNome($nome): void
     {
-        $this->name = $name;
+        $this->nome = $nome;
     }
 
     /**
@@ -107,15 +105,15 @@ class Usuario
      */
     public function getCpfCnpj()
     {
-        return $this->cpf_cnpj;
+        return $this->cpfCnpj;
     }
 
     /**
-     * @param mixed $cpf_cnpj
+     * @param mixed $cpfCnpj
      */
-    public function setCpfCnpj($cpf_cnpj): void
+    public function setCpfCnpj($cpfCnpj): void
     {
-        $this->cpf_cnpj = $cpf_cnpj;
+        $this->cpfCnpj = $cpfCnpj;
     }
 
     /**
@@ -123,15 +121,15 @@ class Usuario
      */
     public function getDtNascimento()
     {
-        return $this->dt_nascimento;
+        return $this->dtNascimento;
     }
 
     /**
-     * @param mixed $dt_nascimento
+     * @param mixed $dtNascimento
      */
-    public function setDtNascimento($dt_nascimento): void
+    public function setDtNascimento($dtNascimento): void
     {
-        $this->dt_nascimento = $dt_nascimento;
+        $this->dtNascimento = $dtNascimento;
     }
 
     /**
@@ -139,15 +137,15 @@ class Usuario
      */
     public function getDtCadastro()
     {
-        return $this->dt_cadastro;
+        return $this->dtCadastro;
     }
 
     /**
-     * @param mixed $dt_cadastro
+     * @param mixed $dtCadastro
      */
-    public function setDtCadastro($dt_cadastro): void
+    public function setDtCadastro($dtCadastro): void
     {
-        $this->dt_cadastro = $dt_cadastro;
+        $this->dtCadastro = $dtCadastro;
     }
 
     /**
@@ -180,38 +178,6 @@ class Usuario
     public function setSexo($sexo): void
     {
         $this->sexo = $sexo;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLogin()
-    {
-        return $this->login;
-    }
-
-    /**
-     * @param mixed $login
-     */
-    public function setLogin($login): void
-    {
-        $this->login = $login;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSenha()
-    {
-        return $this->senha;
-    }
-
-    /**
-     * @param mixed $senha
-     */
-    public function setSenha($senha): void
-    {
-        $this->senha = $senha;
     }
 
     /**
@@ -260,5 +226,21 @@ class Usuario
     public function setContratoAdm($contratoAdm): void
     {
         $this->contratoAdm = $contratoAdm;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTipoUsuario(): ?string
+    {
+        return $this->tipoUsuario;
+    }
+
+    /**
+     * @param string $tipoUsuario
+     */
+    public function setTipoUsuario(string $tipoUsuario): void
+    {
+        $this->tipoUsuario = $tipoUsuario;
     }
 }

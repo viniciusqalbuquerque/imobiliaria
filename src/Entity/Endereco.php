@@ -1,5 +1,7 @@
 <?php
-namespace Entity;
+
+namespace App\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -60,24 +62,24 @@ class Endereco
     private $ddd;
 
     /**
-     * @ORM\Column(type="integer", length=9, nullable=true)
+     * @ORM\Column(type="integer", name="celular", length=9, nullable=true)
      */
     private $celular;
 
     /**
-     * @ORM\Column(type="integer", length=2, nullable=true)
+     * @ORM\Column(type="integer", name="ddd_celular", length=2, nullable=true)
      */
     private $dddCelular;
 
     /**
-     * @ORM\OneToOne(targetEntity="Entity\Usuario", mappedBy="endereco")
+     * @ORM\OneToOne(targetEntity="App\Entity\Usuario", mappedBy="endereco")
      */
     private $cliente;
 
-    /**
-     * @ORM\OneToOne(targetEntity="Entity\Imovel", mappedBy="endereco")
-     */
-    private $imovel;
+//    /**
+//     * @ORM\OneToOne(targetEntity="Entity\Imovel", mappedBy="endereco")
+//     */
+//    private $imovel;
 
     /**
      * @return mixed
