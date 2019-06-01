@@ -4,6 +4,9 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Entity
+ */
 class Imovel
 {
     /**
@@ -29,7 +32,7 @@ class Imovel
     private $observacao;
 
     /**
-     * @ORM\Column(type="string",name="tipo_imovel" length=150, nullable=true)
+     * @ORM\Column(type="string",name="tipo_imovel", length=150, nullable=true)
      */
     private $tipoImovel;
 
@@ -39,7 +42,7 @@ class Imovel
     private $dtCadastro;
 
     /**
-     * @ORM\OneToOne(targetEntity="Entity\Endereco", inversedBy="imovel")
+     * @ORM\OneToOne(targetEntity="App\Entity\Endereco", inversedBy="imovel", cascade={"persist"})
      * @ORM\JoinColumn(name="id_endereco", referencedColumnName="id", unique=true)
      */
     private $endereco;
