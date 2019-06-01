@@ -42,10 +42,12 @@ class Imovel
     private $dtCadastro;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Endereco", inversedBy="imovel", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Endereco", inversedBy="imovel", cascade={"persist"}, fetch="EAGER")
      * @ORM\JoinColumn(name="id_endereco", referencedColumnName="id", unique=true)
      */
     private $endereco;
+
+
 
     /**
      * @return mixed

@@ -14,7 +14,7 @@ class ImovelController extends AbstractController
 {
 
     /**
-     * @Route("imovel/cadastro", name="cadasto_imovel")
+     * @Route("/imovel/cadastro", name="cadasto_imovel")
      *
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
@@ -39,6 +39,19 @@ class ImovelController extends AbstractController
             'form' => $form->createView()
         ]);
 
+    }
+
+    /**
+     * @Route("/imovel/listar", name="listar_imoveis")
+     */
+    public function listarImoveis()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $imoveis = $em->getRepository(Imovel::class)->findAll();
+
+        return $this->render('listar_imoveis.html.twig', [
+            'imoveis' => $imoveis
+        ]);
     }
 
 }

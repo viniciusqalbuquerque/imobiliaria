@@ -76,10 +76,10 @@ class Endereco
      */
     private $cliente;
 
-//    /**
-//     * @ORM\OneToOne(targetEntity="Entity\Imovel", mappedBy="endereco")
-//     */
-//    private $imovel;
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Imovel", mappedBy="endereco")
+     */
+    private $imovel;
 
     /**
      * @return mixed
