@@ -18,7 +18,7 @@ class UsuarioController extends AbstractController
     /**
      * @Route("/usuario", name="usuario_novo")
      */
-    public function novoUsuario(Request $request)
+    public function cadastroUsuario(Request $request)
     {
         $usuario = new Usuario();
         $form = $this->createForm(UsuarioType::class, $usuario);
