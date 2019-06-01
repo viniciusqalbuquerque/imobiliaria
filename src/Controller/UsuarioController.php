@@ -39,7 +39,7 @@ class UsuarioController extends AbstractController
     }
 
     /**
-     * @Route("/listar-usuarios", name="listar-usuarios")
+     * @Route("/listar", name="listar_usuarios")
      */
     public function listarUsuarios(Request $request)
     {
@@ -52,7 +52,7 @@ class UsuarioController extends AbstractController
     }
 
     /**
-     * @Route("/editar-usuario/{id}", name="editar-usuario")
+     * @Route("/editar/{id}", name="editar_usuario")
      */
     public function editarUsuario(int $id)
     {

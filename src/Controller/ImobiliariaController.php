@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ImobiliariaController extends AbstractController
 {
     /**
-     * @Route("index", name="index")
+     * @Route("/", name="index")
      */
     public function index()
     {
