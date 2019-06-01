@@ -24,8 +24,8 @@ class UsuarioType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->setAction('../usuario')
-            ->setMethod('POST')
+//            ->setAction('../usuario')
+//            ->setMethod('POST')
             ->add('nome', TextType::class, [
                 'label' => 'Nome'
             ])
@@ -51,6 +51,7 @@ class UsuarioType extends AbstractType
             ->add('tipoUsuario', TextType::class, [
                 'label' => 'Tipo De usuário',
             ])
+            ->add('endereco', EnderecoType::class)
         ;
     }
 

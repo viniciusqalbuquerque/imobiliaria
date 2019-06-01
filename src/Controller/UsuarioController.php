@@ -54,12 +54,23 @@ class UsuarioController extends AbstractController
     /**
      * @Route("/editar/{id}", name="editar_usuario")
      */
-    public function editarUsuario(int $id)
+    public function editarUsuario(int $id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $usuario = $em->getRepository(Usuario::class)->find($id);
 
         $form = $this->createForm(UsuarioType::class, $usuario);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $usuario = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->merge($usuario);
+            $em->flush();
+
+            return $this->redirectToRoute('listar_usuarios');
+        }
 
         return $this->render('usuario_cadastro.html.twig', [
             'form' => $form->createView()

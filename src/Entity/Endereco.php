@@ -17,7 +17,7 @@ class Endereco
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", name="logradouro", length=255, nullable=true)
      */
     private $logradouro;
 
@@ -57,9 +57,9 @@ class Endereco
     private $telefone;
 
     /**
-     * @ORM\Column(type="integer", length=2, nullable=true)
+     * @ORM\Column(type="integer", name="ddd_telefone", length=2, nullable=true)
      */
-    private $ddd;
+    private $dddTelefone;
 
     /**
      * @ORM\Column(type="integer", name="celular", length=9, nullable=true)
@@ -228,17 +228,17 @@ class Endereco
     /**
      * @return mixed
      */
-    public function getDdd()
+    public function getDddTelefone()
     {
-        return $this->ddd;
+        return $this->dddTelefone;
     }
 
     /**
-     * @param mixed $ddd
+     * @param mixed $dddTelefone
      */
-    public function setDdd($ddd): void
+    public function setDddTelefone($dddTelefone): void
     {
-        $this->ddd = $ddd;
+        $this->dddTelefone = $dddTelefone;
     }
 
     /**

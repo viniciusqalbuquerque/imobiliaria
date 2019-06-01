@@ -3,6 +3,7 @@
 
 namespace App\Forms;
 
+use App\Entity\Endereco;
 use App\Entity\Usuario;
 use function PHPSTORM_META\type;
 use Symfony\Component\Form\AbstractType;
@@ -46,7 +47,7 @@ class EnderecoType extends AbstractType
             ->add('cidade', TextType::class, [
                 'label' => 'Cidade:',
             ])
-            ->add('ddd', TextType::class, [
+            ->add('dddTelefone', TextType::class, [
                 'label' => 'DDD:',
             ])
             ->add('telefone', TextType::class, [
@@ -67,7 +68,7 @@ class EnderecoType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Usuario::class,
+            'data_class' => Endereco::class,
         ]);
     }
 }

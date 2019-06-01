@@ -47,7 +47,7 @@ class Usuario
     private $sexo;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Endereco", inversedBy="cliente")
+     * @ORM\OneToOne(targetEntity="App\Entity\Endereco", inversedBy="cliente", cascade={"persist"})
      * @ORM\JoinColumn(name="id_endereco", referencedColumnName="id", unique=true, nullable=true)
      */
     private $endereco;
@@ -191,7 +191,7 @@ class Usuario
     /**
      * @param mixed $endereco
      */
-    public function setEndereco($endereco): void
+    public function setEndereco(Endereco $endereco): void
     {
         $this->endereco = $endereco;
     }
