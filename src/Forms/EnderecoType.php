@@ -7,8 +7,10 @@ use App\Entity\Endereco;
 use App\Entity\Usuario;
 use function PHPSTORM_META\type;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -41,8 +43,37 @@ class EnderecoType extends AbstractType
             ->add('complemento', TextType::class, [
                 'label' => 'Complemento',
             ])
-            ->add('uf', TextType::class, [
+            ->add('uf', ChoiceType::class, [
                 'label' => 'UF:',
+                'choices' => [
+                    'Acre' => 'AC',
+                    'Alagoas' => 'AL',
+                    'Amazonas' => 'AM',
+                    'Amapá' => 'AP',
+                    'Bahia' => 'BA',
+                    'Ceará' => 'CE',
+                    'Distrito Federal' => 'DF',
+                    'Espírito Santo' => 'ES',
+                    'Goiás' => 'GO',
+                    'Maranhão' => 'MA',
+                    'Mato Grosso' => 'MT',
+                    'Mato Grosso do Sul' => 'MS',
+                    'Minas Gerais' => 'MG',
+                    'Pará' => 'PA',
+                    'Paraíba' => 'PB',
+                    'Paraná' => 'PR',
+                    'Pernambuco' => 'PE',
+                    'Piauí' => 'PI',
+                    'Rio de Janeiro' => 'RJ',
+                    'Rio Grande do Norte' => 'RN',
+                    'Rio Grande do Sul' => 'RS',
+                    'Rondônia' => 'RO',
+                    'Roraima' => 'RR',
+                    'Santa Catarina' => 'SC',
+                    'São Paulo' => 'SP',
+                    'Sergipe' => 'SE',
+                    'Tocantins' => 'TO'
+                ],
             ])
             ->add('cidade', TextType::class, [
                 'label' => 'Cidade:',
@@ -50,7 +81,7 @@ class EnderecoType extends AbstractType
             ->add('dddTelefone', TextType::class, [
                 'label' => 'DDD:',
             ])
-            ->add('telefone', TextType::class, [
+            ->add('telefone', TelType::class, [
                 'label' => 'Telefone:',
             ])
             ->add('dddCelular', TextType::class, [
