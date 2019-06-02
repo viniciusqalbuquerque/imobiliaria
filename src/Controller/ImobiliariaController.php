@@ -17,6 +17,16 @@ class ImobiliariaController extends AbstractController
     public function index()
     {
 
+        return $this->render('index.html.twig');
+
+    }
+
+    /**
+     * @Route("dashboard", name="dashboard")
+     */
+    public function dashboard()
+    {
+
         return $this->render('imobiliaria.html.twig');
 
     }
