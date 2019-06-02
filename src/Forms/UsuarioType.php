@@ -27,7 +27,10 @@ class UsuarioType extends AbstractType
 //            ->setAction('../usuario')
 //            ->setMethod('POST')
             ->add('nome', TextType::class, [
-                'label' => 'Nome'
+                'label' => 'Nome',
+                'attr' => [
+                    'class' => 'col-xs-6'
+                ]
             ])
             ->add('CpfCnpj', TextType::class, [
                 'label' => 'CpfCnpj',

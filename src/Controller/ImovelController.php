@@ -54,4 +54,33 @@ class ImovelController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/imovel/portifolios", name="listar_portifolios")
+     */
+    public function imoveisPortifolios()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $imoveis = $em->getRepository(Imovel::class)->findAll();
+
+        return $this->render('listar_portifolios.html.twig', [
+            'imoveis' => $imoveis
+        ]);
+    }
+
+    /**
+     * @Route("/imovel/visualizar/{id}", name="imovel_visualizar")
+     */
+    public function imovelVisualizar(Request $request)
+    {
+        $id = $request->get('id');
+        $em = $this->getDoctrine()->getManager();
+        $imovel = $em->getRepository(Imovel::class)->find($id);
+
+        return $this->render('imovel_visualizar.html.twig', [
+            'imovel' => $imovel
+        ]);
+    }
+
+
+
 }
