@@ -28,12 +28,12 @@ class UsuarioType extends AbstractType
 //            ->setMethod('POST')
             ->add('nome', TextType::class, [
                 'label' => 'Nome',
-                'attr' => [
-                    'class' => 'col-xs-6'
-                ]
             ])
-            ->add('CpfCnpj', TextType::class, [
+            ->add('cpfCnpj', TextType::class, [
                 'label' => 'CpfCnpj',
+                'attr' => [
+                    'style' => 'width: 200px',
+                ]
             ])
             ->add('sexo', TextType::class, [
                 'label' => 'Sexto',
