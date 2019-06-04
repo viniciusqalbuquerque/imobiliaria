@@ -6,7 +6,6 @@ use Exception;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
@@ -25,6 +24,7 @@ class ExceptionListener implements EventSubscriberInterface
 
     /**
      * ExceptionListener constructor.
+     *
      * @param LoggerInterface $logger
      * @param ContainerInterface $container
      */
