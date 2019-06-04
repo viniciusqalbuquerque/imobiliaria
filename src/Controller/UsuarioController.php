@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Forms\UsuarioType;
 use App\Entity\Usuario;
+use phpDocumentor\Reflection\DocBlock\Tags\Throws;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -58,6 +59,10 @@ class UsuarioController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $usuario = $em->getRepository(Usuario::class)->find($id);
+
+        if (!$usuario) {
+            throw new \Exception('Usuario não encontrado');
+        }
 
         $form = $this->createForm(UsuarioType::class, $usuario);
 

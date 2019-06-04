@@ -20,12 +20,6 @@
 
     </head>
 
-    {% for flashMessage in app.session.flashbag.get('error') %}
-
-        {{ flashMessage }}
-
-    {% endfor %}
-
     <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -151,12 +145,16 @@
                         <!-- Nav Item - Messages -->
 
                         <div class="topbar-divider d-none d-sm-block"></div>
-
-
                     </ul>
-
                 </nav>
-                <!-- End of Topbar -->
+                {% for message in app.flashes('error') %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
 
-{#                <!-- Begin Page Content -->#}
-{#                <div class="container-fluid">#}
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
