@@ -86,6 +86,7 @@ class UsuarioController extends AbstractController
         $usuario = $em->getRepository(Usuario::class)->find($id);
         $em->remove($usuario);
         $em->flush();
+        $this->addFlash('success', 'Usuario de id:'.$id.' deletado com sucesso!!!');
 
         return $this->redirectToRoute('listar_usuarios');
     }

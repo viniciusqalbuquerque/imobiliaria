@@ -20,6 +20,12 @@
 
     </head>
 
+    {% for flashMessage in app.session.flashbag.get('error') %}
+
+        {{ flashMessage }}
+
+    {% endfor %}
+
     <body id="page-top">
 
     <!-- Page Wrapper -->
