@@ -39,6 +39,10 @@ class EnderecoType extends AbstractType
             ])
             ->add('cep', TextType::class, [
                 'label' => 'CEP:',
+                'attr' => [
+                    'data-mask' => '00000-000',
+                    'placeholder' => '_ _ _ _ _ . _ _ _'
+                ]
             ])
             ->add('complemento', TextType::class, [
                 'label' => 'Complemento',
@@ -80,15 +84,31 @@ class EnderecoType extends AbstractType
             ])
             ->add('dddTelefone', TextType::class, [
                 'label' => 'DDD:',
+                'attr' => [
+                    'data-mask' => '00',
+                    'placeholder' => '(_ _)'
+                ]
             ])
             ->add('telefone', TelType::class, [
                 'label' => 'Telefone:',
+                'attr' => [
+                    'data-mask' => '000-0000',
+                    'placeholder' => '_ _ _ - _ _ _ _'
+                ]
             ])
             ->add('dddCelular', TextType::class, [
                 'label' => 'DDD Celular:',
+                'attr' => [
+                    'data-mask' => '00',
+                    'placeholder' => '(_ _)'
+                ]
             ])
             ->add('celular', TextType::class, [
                 'label' => 'Celular:',
+                'attr' => [
+                    'data-mask' => '00000-0000',
+                    'placeholder' => '_ _ _ _ _  - _ _ _ _'
+                ]
             ])
         ;
     }
