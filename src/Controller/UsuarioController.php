@@ -76,4 +76,17 @@ class UsuarioController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/deletar/{id}", name="deletar_usuario")
+     */
+    public function deletarUsuario(int $id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository(Usuario::class)->find($id);
+        $em->remove($usuario);
+        $em->flush();
+
+        return $this->redirectToRoute('listar_usuarios');
+    }
 }

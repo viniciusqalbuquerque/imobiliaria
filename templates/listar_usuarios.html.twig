@@ -40,7 +40,7 @@
                                                 <th>E-mail</th>
                                                 <th>Sexo</th>
                                                 <th>Data Cadastro</th>
-                                                <th>Editar</th>
+                                                <th>Editar/Deletar</th>
                                         </tr>
                                         </thead>
                                         <tfoot>
@@ -50,7 +50,7 @@
                                                 <th>E-mail</th>
                                                 <th>Sexo</th>
                                                 <th>Data Cadastro</th>
-                                                <th>Editar</th>
+                                                <th>Editar/Deletar</th>
                                         </tr>
                                         </tr>
                                         </tfoot>
@@ -64,7 +64,11 @@
                                                 <td>{{ usuario.dtCadastro|date("m/d/Y") }}</td>
                                                 <td><a href="{{ path('editar_usuario', { 'id': usuario.id}) }}" class="btn btn-success btn-circle btn-sm">
                                                                 <i class="fas fa-check"></i>
-                                                        </a></td>
+                                                    </a>
+                                                    <a href="{{ path('deletar_usuario', { 'id': usuario.id}) }}" class="btn btn-danger btn-circle btn-sm">
+                                                        <i class="fas fa-trash"></i>
+                                                    </a>
+                                                </td>
                                         </tr>
                                         </tbody>
                                         {% endfor %}
