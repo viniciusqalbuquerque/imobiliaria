@@ -3,9 +3,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Corretor;
 use App\Forms\UsuarioType;
 use App\Entity\Usuario;
 use phpDocumentor\Reflection\DocBlock\Tags\Throws;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +19,9 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class UsuarioController extends AbstractController
 {
+
     /**
+     *@IsGranted("ROLE_ADMIN")
      * @Route("/usuario", name="usuario_novo")
      */
     public function cadastroUsuario(Request $request)
@@ -44,6 +49,17 @@ class UsuarioController extends AbstractController
      */
     public function listarUsuarios(Request $request)
     {
+        $user = new Corretor();
+        $user->setLogin('helio');
+        $user->setRoles([true ? 'ROLE_ADMIN' : 'ROLE_USER']);
+
+        $user->setPassword('ZkCCqGmNQXOeL1avsq2OWv2BSKLqHE33c2aolQ1nFxg');
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+
+
+
         $em = $this->getDoctrine()->getManager();
         $usuarios = $em->getRepository(Usuario::class)->findAll();
 
