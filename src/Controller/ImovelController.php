@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Entity\Imovel;
+use App\Forms\BuscaImovelType;
 use App\Forms\ImovelType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -50,7 +51,7 @@ class ImovelController extends AbstractController
         $imoveis = $em->getRepository(Imovel::class)->findAll();
 
         return $this->render('listar_imoveis.html.twig', [
-            'imoveis' => $imoveis
+            'imoveis' => $imoveis,
         ]);
     }
 
@@ -61,9 +62,11 @@ class ImovelController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $imoveis = $em->getRepository(Imovel::class)->findAll();
+        $form =$this->createForm(BuscaImovelType::class);
 
         return $this->render('listar_portifolios.html.twig', [
-            'imoveis' => $imoveis
+            'imoveis' => $imoveis,
+            'form' => $form->createView()
         ]);
     }
 
