@@ -1,0 +1,95 @@
+{% include "base.html.twig" %}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+        <!-- Page Heading -->
+        <h1 class="h3 mb-4 text-gray-800">Cadastro de Usuários</h1>
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-sm-5">
+            {{ form_row(form.nome) }}
+        </div>
+        <div class="col-sm-1">
+            {{ form_row(form.cpfCnpj) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+            {{ form_row(form.email) }}
+        </div>
+        <div  class="col-sm-2">
+            {{ form_row(form.sexo) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            {{ form_row(form.dtNascimento) }}
+        </div>
+        <div class="col-sm-2">
+            {{ form_row(form.dtCadastro) }}
+        </div>
+        <div class="col-sm-2">
+            {{ form_row(form.tipoUsuario) }}
+        </div>
+    </div>
+    <h1 class="h3 mb-4 text-gray-800">Endereço</h1>
+    <div class="row">
+        <div class="col-sm-5">
+            {{ form_row(form.endereco.logradouro) }}
+        </div>
+        <div class="col-sm-1">
+            {{ form_row(form.endereco.numero) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+            {{ form_row(form.endereco.bairro) }}
+        </div>
+        <div class="col-sm-3">
+            {{ form_row(form.endereco.cep) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+            {{ form_row(form.endereco.cidade) }}
+        </div>
+        <div class="col-sm-3">
+            {{ form_row(form.endereco.uf) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+            {{ form_row(form.endereco.complemento) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            {{ form_row(form.endereco.dddTelefone) }}
+        </div>
+        <div class="col-sm-4">
+            {{ form_row(form.endereco.telefone) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            {{ form_row(form.endereco.dddCelular) }}
+        </div>
+        <div class="col-sm-4">
+            {{ form_row(form.endereco.celular) }}
+        </div>
+    </div>
+    </div>
+        <input class="btn btn-success btn-icon-split" type="submit"/>
+
+<!-- End of Main Content -->
+
+{% include "footer.html.twig" %}s
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,99 @@
+{% include "base.html.twig" %}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Lista de Imovéis Cadastrados</h6>
+                </div>
+                <div class="card-body">
+                        <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                        <tr>
+                                                <th>Status</th>
+                                                <th>Caracterisitcas</th>
+                                                <th>Observacao</th>
+                                                <th>Tipo do Imovel</th>
+                                                <th>Data Cadastro</th>
+                                                <th>Bairro</th>
+                                                <th>Rua</th>
+                                                <th>Editar/Deletar</th>
+                                        </tr>
+                                        </thead>
+                                        <tfoot>
+                                        <tr>
+                                                <th>Status</th>
+                                                <th>Caracterisitcas</th>
+                                                <th>Observacao</th>
+                                                <th>Tipo do Imovel</th>
+                                                <th>Data Cadastro</th>
+                                                <th>Bairro</th>
+                                                <th>Rua</th>
+                                                <th>Editar/Deletar</th>
+                                        </tr>
+                                        </tr>
+                                        </tfoot>
+                                        <tbody>
+                                        </tbody>
+                                         {% for imovel in imoveis %}
+                                        <tr>
+                                                <td>{{ imovel.status }}</td>
+                                                <td>{{ imovel.caracteristicas }}</td>
+                                                <td>{{ imovel.observacao }}</td>
+                                                <td>{{ imovel.tipoImovel }}</td>
+                                                <td>{{ imovel.dtCadastro|date("m/d/Y") }}</td>
+                                                <td>{{ imovel.endereco.bairro }}</td>
+                                                <td>{{ imovel.endereco.logradouro }}</td>
+                                                <td>
+                                                        <a href="{{ path('editar_imovel', { 'id': imovel.id}) }}" class="btn btn-success btn-circle btn-sm">
+                                                                <i class="fas fa-check"></i>
+                                                        </a>
+                                                        <a href="{{ path('deletar_imovel', { 'id': imovel.id}) }}" class="btn btn-danger btn-circle btn-sm">
+                                                                <i class="fas fa-trash"></i>
+                                                        </a>
+                                                </td>
+                                        </tr>
+                                        {% endfor %}
+                                </table>
+                        </div>
+                </div>
+        </div>
+
+        </div>
+</div>
+
+{#</div>#}
+
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="js/demo/datatables-demo.js"></script>
+
+<!-- End of Main Content -->
+
+{% include "footer.html.twig" %}s
+
+
+
+
+
+
+
+
+
